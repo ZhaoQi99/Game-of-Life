@@ -3,10 +3,11 @@ using System;
 
 public class Game
 {
-    private Field field;
+    private Field field;//放置所有细胞的网格
 
     public Field Field { get { return field; }set { field = value; } }
 
+    //新建一个游戏
     public Game(int width, int height)
     {
         field = new Field(width, height);
@@ -18,6 +19,8 @@ public class Game
             }
         }
     }
+
+    //随机生成细胞状态
     public void Rand()
     {
         Random rand = new Random();
@@ -33,6 +36,7 @@ public class Game
             }
         }
     }
+    //返回一个存储每个细胞状态的二维数组
     public bool[,] cellStatus()
     {
         bool[,] status = new bool[field.getHeight(), field.getWidth()];
@@ -47,6 +51,7 @@ public class Game
         return status;
     }
 
+    //产生下一代
     public void generation()
     {
         Field f = new Field(field.getHeight(), field.getWidth());
@@ -84,6 +89,7 @@ public class Game
         }
         field = f;
     }
+    //按照固定样式一设置细胞状态
     public void StyleOne()
     {
 

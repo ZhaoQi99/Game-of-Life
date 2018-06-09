@@ -23,6 +23,7 @@ namespace GameOfLife
             game = new Game(Convert.ToInt32(NumericCell.Value), Convert.ToInt32(NumericCell.Value));
         }
 
+        //开始按钮的Click事件
         private void button1_Click(object sender, EventArgs e)
         {
             if(game==null)
@@ -41,11 +42,13 @@ namespace GameOfLife
             BtnStop.Enabled = true;
         }
 
+        //产生下一代的速率
         private void generation_Tick(object sender, EventArgs e)
         {
             game.generation();
             show();
         }
+        //更新PictureBox
         private void show()
         {
             Bitmap map = new Bitmap(PicBoxCell.Width, PicBoxCell.Height);
@@ -71,11 +74,13 @@ namespace GameOfLife
             PicBoxCell.Image = map;
         }
 
+        //关闭线程
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
+        //停止按钮的Click事件
         private void BtnStop_Click(object sender, EventArgs e)
         {
             BtnStart.Enabled = true;
@@ -85,6 +90,7 @@ namespace GameOfLife
             game = null;
         }
 
+        //暂停按钮的Click事件
         private void BtnPause_Click(object sender, EventArgs e)
         {
             BtnPause.Enabled = false;
