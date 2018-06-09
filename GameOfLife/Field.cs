@@ -6,8 +6,7 @@ public class Field
 	private int width;//网格的宽度
 	private int height;//网格的高度
 	private Cell[,] field;
-	public Cell[,] Fieldd
-    { get { return field; } }
+	public Cell[,] Fieldd{ get { return field; } }
 	public Field(int width, int height) {
 		this.width = width;
 		this.height = height;

@@ -92,6 +92,25 @@ public class Game
         }
         field = f;
     }
+
+    private void SetStatus(int[,] a)
+    {
+        for (int i = 0; i < 40; i++)
+        {
+            for (int j = 0; j < 40; j++)
+            {
+                Cell c = field.get(i, j);
+                if (a[i, j] == 1)
+                {
+                    c.reborn();
+                }
+                else
+                {
+                    c.die();
+                }
+            }
+        }
+    }
     //按照固定样式一设置细胞状态
     public void StyleOne()
     {
@@ -137,20 +156,35 @@ public class Game
                 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
         };
-        for (int i = 0; i < 40; i++)
+        SetStatus(result);
+    }
+    //按照固定样式二设置细胞状态
+    public void StyleTwo()
+    {
+        int n = field.getWidth();
+        for (int i = 0; i < n; i++)
         {
-            for (int j = 0; j < 40; j++)
+            Cell c = field.get(n / 2, i);
+            c.reborn();
+        }
+    }
+
+    //按照固定样式三设置细胞状态
+    public void StyleThree()
+    {
+        int n = field.getWidth();
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < 8 && i + j < n; j++)
             {
-                Cell c = field.get(i, j);
-                if (result[i, j] == 1)
-                {
-                    c.reborn();
-                }
-                else
-                {
-                    c.die();
-                }
+                Cell c = field.get(n / 2, i + j);
+                c.reborn();
+                c = field.get(0, i + j);
+                c.reborn();
+                c = field.get(n / 2 + 6, i + j);
+                c.reborn();
             }
+            i += 10;
         }
     }
 }
