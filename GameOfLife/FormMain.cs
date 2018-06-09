@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using CCWin;
 namespace GameOfLife
 {
-    public partial class Form1 : CCSkinMain
+    public partial class FormMain : CCSkinMain
     {
         Game game;
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
             generation.Interval = 400;
@@ -21,11 +21,18 @@ namespace GameOfLife
             BtnStart.Enabled = true;
             BtnPause.Enabled = false;
             game = new Game(Convert.ToInt32(NumericCell.Value), Convert.ToInt32(NumericCell.Value));
-            game.Rand();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(game==null)
+            {
+                game = new Game(Convert.ToInt32(NumericCell.Value), Convert.ToInt32(NumericCell.Value));
+            }
+            if (RadBtnRand.Checked == true)
+                game.Rand();
+            if (RadBtnOne.Checked == true)
+                game.StyleOne();
             BtnPause.Enabled = true;
             generation.Enabled = true;
             BtnStart.Enabled = false;
@@ -75,8 +82,7 @@ namespace GameOfLife
             BtnStop.Enabled = false;
             generation.Enabled = false;
             NumericCell.Enabled = true;
-            game = new Game(Convert.ToInt32(NumericCell.Value), Convert.ToInt32(NumericCell.Value));
-            game.Rand();
+            game = null;
         }
 
         private void BtnPause_Click(object sender, EventArgs e)

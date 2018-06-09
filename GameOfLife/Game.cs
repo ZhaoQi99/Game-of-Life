@@ -84,5 +84,9 @@ public class Game
         }
         field = f;
     }
+    public void StyleOne()
+    {
+
+    }
 
 }

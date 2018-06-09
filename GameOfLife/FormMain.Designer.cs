@@ -1,6 +1,6 @@
 ﻿namespace GameOfLife
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -36,13 +36,15 @@
             this.BtnStop = new System.Windows.Forms.Button();
             this.BtnPause = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.RadBtnRand = new System.Windows.Forms.RadioButton();
+            this.RadBtnOne = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.NumericCell)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxCell)).BeginInit();
             this.SuspendLayout();
             // 
             // NumericCell
             // 
-            this.NumericCell.Location = new System.Drawing.Point(463, 463);
+            this.NumericCell.Location = new System.Drawing.Point(463, 468);
             this.NumericCell.Name = "NumericCell";
             this.NumericCell.Size = new System.Drawing.Size(120, 25);
             this.NumericCell.TabIndex = 1;
@@ -105,18 +107,43 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "网格宽度";
             // 
-            // Form1
+            // RadBtnRand
+            // 
+            this.RadBtnRand.AutoSize = true;
+            this.RadBtnRand.Checked = true;
+            this.RadBtnRand.Location = new System.Drawing.Point(123, 509);
+            this.RadBtnRand.Name = "RadBtnRand";
+            this.RadBtnRand.Size = new System.Drawing.Size(88, 19);
+            this.RadBtnRand.TabIndex = 9;
+            this.RadBtnRand.TabStop = true;
+            this.RadBtnRand.Text = "随机生成";
+            this.RadBtnRand.UseVisualStyleBackColor = true;
+            // 
+            // RadBtnOne
+            // 
+            this.RadBtnOne.AutoSize = true;
+            this.RadBtnOne.Location = new System.Drawing.Point(263, 509);
+            this.RadBtnOne.Name = "RadBtnOne";
+            this.RadBtnOne.Size = new System.Drawing.Size(73, 19);
+            this.RadBtnOne.TabIndex = 10;
+            this.RadBtnOne.TabStop = true;
+            this.RadBtnOne.Text = "样式一";
+            this.RadBtnOne.UseVisualStyleBackColor = true;
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(615, 518);
+            this.ClientSize = new System.Drawing.Size(627, 558);
+            this.Controls.Add(this.RadBtnOne);
+            this.Controls.Add(this.RadBtnRand);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnPause);
             this.Controls.Add(this.BtnStop);
             this.Controls.Add(this.PicBoxCell);
             this.Controls.Add(this.BtnStart);
             this.Controls.Add(this.NumericCell);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.NumericCell)).EndInit();
@@ -134,6 +161,8 @@
         private System.Windows.Forms.Button BtnStop;
         private System.Windows.Forms.Button BtnPause;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton RadBtnRand;
+        private System.Windows.Forms.RadioButton RadBtnOne;
     }
 }
 
