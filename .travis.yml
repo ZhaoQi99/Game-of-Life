@@ -1,0 +1,4 @@
+language: csharp
+solution: GameOfLife.sln
+mono:
+  - latest

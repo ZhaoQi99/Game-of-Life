@@ -7,27 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CCWin;
 namespace GameOfLife
 {
-    public partial class Form1 : Form
+    public partial class Form1 : CCSkinMain
     {
         Game game;
         public Form1()
         {
             InitializeComponent();
-            generation.Interval = 100;
+            generation.Interval = 400;
             BtnStop.Enabled = false;
             BtnStart.Enabled = true;
+            BtnPause.Enabled = false;
+            game = new Game(Convert.ToInt32(NumericCell.Value), Convert.ToInt32(NumericCell.Value));
+            game.Rand();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            game = new Game(Convert.ToInt32(NumericCell.Value), Convert.ToInt32(NumericCell.Value));
-            game.Rand();
+            BtnPause.Enabled = true;
             generation.Enabled = true;
             BtnStart.Enabled = false;
             show();
+            NumericCell.Enabled = false;
+            BtnStop.Enabled = true;
         }
 
         private void generation_Tick(object sender, EventArgs e)
@@ -49,7 +53,7 @@ namespace GameOfLife
             {
                 for (int j = 0; j < Convert.ToInt32(NumericCell.Value); j++)
                 {
-                    Rectangle rec = new Rectangle(i * cell_size, j * cell_size, cell_size, cell_size);
+                    Rectangle rec = new Rectangle(j * cell_size, i * cell_size, cell_size, cell_size);
                     g.DrawRectangle(pen, rec);
                     if (status[i, j] == true)
                     {
@@ -70,6 +74,16 @@ namespace GameOfLife
             BtnStart.Enabled = true;
             BtnStop.Enabled = false;
             generation.Enabled = false;
+            NumericCell.Enabled = true;
+            game = new Game(Convert.ToInt32(NumericCell.Value), Convert.ToInt32(NumericCell.Value));
+            game.Rand();
+        }
+
+        private void BtnPause_Click(object sender, EventArgs e)
+        {
+            BtnPause.Enabled = false;
+            generation.Enabled = false;
+            BtnStart.Enabled = true;
         }
     }
 }

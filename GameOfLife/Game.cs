@@ -5,7 +5,7 @@ public class Game
 {
     private Field field;
 
-    public Field Field { get { return field; } }
+    public Field Field { get { return field; }set { field = value; } }
 
     public Game(int width, int height)
     {
@@ -26,7 +26,7 @@ public class Game
             for (int col = 0; col < Field.getWidth(); col++)
             {
                 Cell cell = Field.get(row, col);
-                if (rand.NextDouble() < 0.2)
+                if (rand.NextDouble() < 0.4)
                 {
                     cell.reborn();
                 }
@@ -49,11 +49,20 @@ public class Game
 
     public void generation()
     {
+        Field f = new Field(field.getHeight(), field.getWidth());
+        for (int row = 0; row < f.getHeight(); row++)
+        {
+            for (int col = 0; col < f.getWidth(); col++)
+            {
+                f.place(row, col, new Cell());
+            }
+        }
+
         for (int row = 0; row < field.getHeight(); row++)
         {
             for (int col = 0; col < field.getWidth(); col++)
             {
-                Cell cell = field.get(row, col);
+                Cell temp = f.get(row, col);
                 Cell[] neighbour = field.getNeighbour(row, col);
                 int numOfLive = 0;
                 foreach (Cell c in neighbour)
@@ -65,14 +74,15 @@ public class Game
                 }
                 if (numOfLive > 3 || numOfLive < 2)
                 {
-                    cell.die();
+                    temp.die();
                 }
-                else if (numOfLive == 3 && !cell.isAlive())
+                else if (numOfLive == 3)
                 {
-                    cell.reborn();
+                    temp.reborn();
                 }
             }
         }
+        field = f;
     }
 
 }
