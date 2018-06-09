@@ -16,7 +16,7 @@ namespace GameOfLife
         public FormMain()
         {
             InitializeComponent();
-            generation.Interval = 400;
+            generation.Interval = 100;
             BtnStop.Enabled = false;
             BtnStart.Enabled = true;
             BtnPause.Enabled = false;
