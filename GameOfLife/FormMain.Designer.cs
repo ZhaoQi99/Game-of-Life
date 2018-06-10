@@ -42,11 +42,11 @@
             this.NumicSpeed = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new CCWin.SkinControl.SkinPanel();
+            this.RadBtnThree = new System.Windows.Forms.RadioButton();
+            this.RadBtnTwo = new System.Windows.Forms.RadioButton();
             this.BtnColor = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.RadBtnTwo = new System.Windows.Forms.RadioButton();
-            this.RadBtnThree = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.NumericCell)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBoxCell)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumicSpeed)).BeginInit();
@@ -209,6 +209,28 @@
             this.panel1.Size = new System.Drawing.Size(616, 100);
             this.panel1.TabIndex = 13;
             // 
+            // RadBtnThree
+            // 
+            this.RadBtnThree.AutoSize = true;
+            this.RadBtnThree.Location = new System.Drawing.Point(291, 65);
+            this.RadBtnThree.Name = "RadBtnThree";
+            this.RadBtnThree.Size = new System.Drawing.Size(73, 19);
+            this.RadBtnThree.TabIndex = 15;
+            this.RadBtnThree.TabStop = true;
+            this.RadBtnThree.Text = "震荡子";
+            this.RadBtnThree.UseVisualStyleBackColor = true;
+            // 
+            // RadBtnTwo
+            // 
+            this.RadBtnTwo.AutoSize = true;
+            this.RadBtnTwo.Location = new System.Drawing.Point(204, 65);
+            this.RadBtnTwo.Name = "RadBtnTwo";
+            this.RadBtnTwo.Size = new System.Drawing.Size(73, 19);
+            this.RadBtnTwo.TabIndex = 14;
+            this.RadBtnTwo.TabStop = true;
+            this.RadBtnTwo.Text = "一字型";
+            this.RadBtnTwo.UseVisualStyleBackColor = true;
+            // 
             // BtnColor
             // 
             this.BtnColor.Location = new System.Drawing.Point(291, 19);
@@ -219,28 +241,6 @@
             this.toolTip.SetToolTip(this.BtnColor, "设置网格的填充颜色");
             this.BtnColor.UseVisualStyleBackColor = true;
             this.BtnColor.Click += new System.EventHandler(this.BtnColor_Click);
-            // 
-            // RadBtnTwo
-            // 
-            this.RadBtnTwo.AutoSize = true;
-            this.RadBtnTwo.Location = new System.Drawing.Point(204, 65);
-            this.RadBtnTwo.Name = "RadBtnTwo";
-            this.RadBtnTwo.Size = new System.Drawing.Size(73, 19);
-            this.RadBtnTwo.TabIndex = 14;
-            this.RadBtnTwo.TabStop = true;
-            this.RadBtnTwo.Text = "样式一";
-            this.RadBtnTwo.UseVisualStyleBackColor = true;
-            // 
-            // RadBtnThree
-            // 
-            this.RadBtnThree.AutoSize = true;
-            this.RadBtnThree.Location = new System.Drawing.Point(291, 65);
-            this.RadBtnThree.Name = "RadBtnThree";
-            this.RadBtnThree.Size = new System.Drawing.Size(73, 19);
-            this.RadBtnThree.TabIndex = 15;
-            this.RadBtnThree.TabStop = true;
-            this.RadBtnThree.Text = "样式一";
-            this.RadBtnThree.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
